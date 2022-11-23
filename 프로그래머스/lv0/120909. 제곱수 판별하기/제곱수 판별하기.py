@@ -1,5 +1,3 @@
-import math
 def solution(n):
-    a = math.sqrt(n)
-    answer = 1 if a == int(a) else 2
+    answer = 1 if (n**0.5).is_integer() else 2
     return answer
