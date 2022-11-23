@@ -1,1 +1,1 @@
-# Algorithm_Training_BOJ
+# Algorithm_Training
