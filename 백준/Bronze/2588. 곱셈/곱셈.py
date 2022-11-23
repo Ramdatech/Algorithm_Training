@@ -1,7 +1,7 @@
-a = input()
-b = input()
-
-print(int(b[2]) * int(a))
-print(int(b[1]) * int(a))
-print(int(b[0]) * int(a))
-print(int(a)*int(b))
+import sys
+input = sys.stdin.readline
+a = int(input().strip())
+b = input().strip()
+for i in b[::-1] :
+    print(int(i) * a)
+print(a*int(b))
