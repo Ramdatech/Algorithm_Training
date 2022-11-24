@@ -1,2 +1,9 @@
 def solution(n):
-    return [x for x in range(300) if x%3 != 0 and str(x).find("3")<0][n-1]
+    x = 0
+    res = []
+    while 1:
+        x += 1
+        if x%3 != 0 and str(x).find("3")<0 :
+            res.append(x)
+        if len(res)==n:
+            return x
