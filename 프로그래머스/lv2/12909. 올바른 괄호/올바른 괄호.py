@@ -4,7 +4,4 @@ def solution(s):
         answer[i==")"] += 1
         if answer[0] > answer[1]:
             return False
-    if answer[0] == answer[1] : 
-        return True
-    else : 
-        return False
+    return answer[0] == answer[1]
