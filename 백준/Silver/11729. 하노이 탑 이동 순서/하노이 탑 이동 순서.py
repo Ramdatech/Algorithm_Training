@@ -1,19 +1,15 @@
 import sys
 
-def hanoi (n, start, goal, move, count):
-    count += 1
-    if n == 1 :
-        move.append([start, goal])
-        return move, count
+def hanoi (n, start, goal):
+    if n == 1:
+        print(start, goal)
+        return None
     via = 6-(start + goal)
-    move, count = hanoi(n-1, start, via, move, count)
-    move.append([start, goal])
-    move, count = hanoi(n-1, via, goal, move, count)
-    return move, count
+    hanoi(n-1, start, via)
+    print(start, goal)
+    hanoi(n-1, via, goal)
 
 input = sys.stdin.readline
 t = int(input())
-a = hanoi(t, 1, 3, [], 0)
-print(a[1])
-for i in a[0]:
-    print(*i)
+print(2**t-1)
+hanoi(t, 1, 3)
