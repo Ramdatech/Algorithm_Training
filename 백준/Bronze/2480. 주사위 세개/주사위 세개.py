@@ -1,9 +1,9 @@
-a = list(map(int, input().split()))
-a_rel = [a.count(x) for x in a]
-if 3 in a_rel :
-    res = 10000 + a[0]*1000
-elif 2 in a_rel :
-    res = 1000 + a[a_rel.index(2)]*100
-else :
-    res = max(a) * 100
-print(res)
+Prize = 0
+ls = list(map(int, input().split()))
+if len(set(ls)) == 1:
+    Prize = ls[0] * 1000 + 10000
+elif len(set(ls)) == 3:
+    Prize = max(ls) * 100
+else:
+    Prize = sorted(ls)[1] * 100 + 1000
+print(Prize)
