@@ -1,0 +1,1 @@
+print(''.join([''.join(i) for i in zip(*[list(str(input()))+['']*15 for i in range(5)])]))
