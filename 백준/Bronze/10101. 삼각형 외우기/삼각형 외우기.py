@@ -1,8 +1,6 @@
 ls = [int(input()) for i in range(3)]
+t = "Error Equilateral Isosceles Scalene".split()
 if sum(ls) != 180 :
-    print("Error")
+    print(t[0])
 else :
-    match len(set(ls)) :
-        case 1 : print("Equilateral")
-        case 2 : print("Isosceles")
-        case 3 : print("Scalene")
+    print(t[len(set(ls))])
