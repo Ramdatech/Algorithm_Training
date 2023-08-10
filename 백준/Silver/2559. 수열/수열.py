@@ -1,7 +1,5 @@
-import sys
-t = sys.stdin.readline
-a, b = map(int, t().split())
-ls = list(map(int, t().split()))
+a, b = map(int, input().split())
+ls = list(map(int, input().split()))
 s, e = 0, b
 res = [sum(ls[s:e])]
 for i in range(a-b) : 
