@@ -1,0 +1,17 @@
+import bisect
+
+N, D = map(int, input().split())
+L1 = list(map(int, input().split()))
+L1.sort()
+
+mx = 1e12
+prev = -1
+for i in range(N):
+	if L1[i] == prev : 
+		continue
+	prev = L1[i]		
+	stt, end = i, bisect.bisect_right(L1, L1[i]+D, i)
+	if mx > stt + (N-end) : 
+		mx = stt + (N-end)
+
+print(mx)
