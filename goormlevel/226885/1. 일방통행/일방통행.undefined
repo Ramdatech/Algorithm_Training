@@ -1,0 +1,49 @@
+import sys
+from collections import deque
+
+t = sys.stdin.readline
+N, M = map(int, t().strip().split())
+P = int(t().strip())
+
+f = {x:set([]) for x in range(1, N+1)}
+r = {x:set([]) for x in range(1, N+1)}
+
+def bfs(stt) : 
+	que = deque([(0, 0, stt), (0, 1, stt)])
+	vst = {}
+	
+	while que : 
+		time, pos, x = que.popleft()
+		if (x, pos) in vst and vst[(x, pos)] < time:
+			continue
+		vst[(x, pos)] = time
+		que.append((time+1, pos^1, x))
+		
+		n_pos = pos^1
+		nxt = r[x] if pos == 1 else f[x]
+		for nd, nc in nxt:
+			cost = nc + time
+			if (nd, n_pos) not in vst or vst[(nd, n_pos)] > cost : 
+				vst[(nd, n_pos)] = cost
+				que.append((cost, n_pos, nd))
+	return vst
+
+for _ in range(M) :
+	a, b = map(int, t().strip().split())
+	f[a].add((b, 1))
+	r[b].add((a, 1))
+
+board = bfs(P)
+res = {}
+for key in board :
+	goal, pos = key
+	if pos == 0 :
+		if goal not in res or res[goal] < board[key] : 
+			res[goal] = board[key] 
+
+for i in range(1,N+1):
+	if i in res : 
+		print(res[i])
+	else :
+		print(-1)
+
