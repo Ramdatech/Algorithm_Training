@@ -1,0 +1,16 @@
+N, M = map(int, input().split())
+ls = list(map(int, input().split()))
+
+cnt_M = M 
+MX = max(ls)
+res = [0, MX+M]
+for i in ls : 
+	cnt_M -= (MX-i)
+
+if cnt_M > 0 :
+	added = 0 if cnt_M % N == 0 else 1
+	res[0] = MX + (cnt_M // N) + added
+else : 
+	res[0] = MX
+	
+print(*res)
