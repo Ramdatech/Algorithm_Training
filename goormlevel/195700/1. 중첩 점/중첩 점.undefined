@@ -1,0 +1,19 @@
+N, M = map(int, input().split())
+ls = [[[0]*2 for _ in range(N)] for __ in range(N)] 
+for i in range(M) : 
+	x, y, d = input().split()
+	x, y = int(x)-1, int(y)-1
+	if d == "R" : 
+		for dy in range(y, N) : 
+			ls[x][dy][0] += 1
+	elif d == "L" : 
+		for dy in range(0, y+1) : 
+			ls[x][dy][0] += 1
+	elif d == "U" : 
+		for dx in range(0, x+1) : 
+			ls[dx][y][1] += 1		
+	elif d == "D" : 
+		for dx in range(x, N) : 
+			ls[dx][y][1] += 1		
+	
+print(sum(ls[i][j][0]*ls[i][j][1] for j in range(N) for i in range(N)))
