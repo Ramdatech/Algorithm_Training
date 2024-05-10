@@ -1,0 +1,21 @@
+from collections import deque
+N = int(input())
+que = deque(list(map(int, input().split())))
+
+tmp = []
+res = 0
+while que :
+	x = que.popleft()
+	if tmp == [] :
+		tmp.append(x)
+	elif x in tmp : 
+		while tmp[-1] != x :
+			tmp.pop()
+		res += 1
+	elif tmp[-1] > x :
+		tmp.append(x)
+	elif tmp[-1] < x :
+		while tmp and tmp[-1] < x :
+			tmp.pop()
+		tmp.append(x)
+print(res)
