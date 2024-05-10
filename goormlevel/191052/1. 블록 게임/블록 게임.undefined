@@ -1,0 +1,23 @@
+import sys
+
+t = sys.stdin.readline
+direct = {"U": (0, 1), "R": (1, 0), "D": (0, -1), "L": (-1, 0)}
+N = int(t().strip())
+ls = list(t().strip())
+scores = list(map(int, t().strip().split()))
+x, y = 0, 0
+que = [(x, y)]
+sb = [1]
+for di, score in zip(ls, scores):
+    dx, dy = direct[di]
+    x, y = x + dx, y + dy
+    while 1:
+        if que and sb and (x, y) in que:
+            que.pop()
+            sb.pop()
+        else:
+            break
+    que.append((x, y))
+    sb.append(score)
+
+print(sum(sb))
