@@ -1,0 +1,26 @@
+def func(tx, ty) :
+	vst = [(tx, ty)]
+	while 1: 
+		cmd = arr[tx][ty]
+		cnt, d = int(cmd[:-1]), cmd[-1]
+		dx, dy = direct[d]
+		for i in range(cnt):
+			tx, ty = (tx+dx)%N, (ty+dy)%N
+			if (tx, ty) in vst : 
+				return len(vst)
+			vst.append((tx, ty))
+
+N = int(input())
+sx, sy = map(int, input().split()) # 구름이 좌표
+px, py = map(int, input().split()) # 플레이어 좌표
+direct = {"U": (-1, 0),
+				  "R": (0, 1),
+					"D": (1, 0),
+					"L": (0, -1)} # 방향
+arr = [input().split() for _ in range(N)] # 1U 2R 2L 등의 맵 요소
+a = func(sx-1, sy-1) # 좌표 함수에 넣기
+b = func(px-1, py-1) # 좌표 함수에 넣기
+if a > b : 
+	print("goorm", a)
+else : 
+	print("player", b)
