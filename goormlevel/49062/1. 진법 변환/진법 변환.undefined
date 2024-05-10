@@ -1,0 +1,15 @@
+import sys
+N, T = sys.stdin.readline().strip().split()
+number_tab = {str(i):i for i in range(0, 10)}
+number_tab.update({str(i):ord(i)-55 for i in "A B C D E F".split()})
+
+for i in range(2, 17):
+	n_text = int(N)
+	for t in range(len(T)-1, -1, -1):
+		if n_text % i != number_tab[T[t]] :
+			break
+		n_text = n_text // i
+	else : 
+		if t == 0 and n_text == 0:
+			print(i)
+			break
