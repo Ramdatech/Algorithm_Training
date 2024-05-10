@@ -1,0 +1,37 @@
+from collections import defaultdict, deque
+N = int(input())
+ls = defaultdict(set)
+for _ in range(N) : 
+	a, b = map(int, input().split())
+	ls[a].add(b)
+	ls[b].add(a)
+
+def dfs(graph, current, parent):
+	global visited, path
+	vst.add(current)
+	path.append(current)
+
+	for nb in graph[current]:
+		if nb == parent:
+			continue
+		if nb in vst:
+			stt = path.index(nb)
+			return path[stt:]
+		else:
+			result = dfs(graph, nb, current)
+			if result:
+				return result
+
+	path.pop()
+	vst.remove(current)
+	return None
+
+vst = set()
+path = []
+for node in ls:
+	if node not in vst:
+		cycle = dfs(ls, node, None)
+		if cycle:
+			print(len(cycle))
+			print(*sorted(cycle))
+			break
