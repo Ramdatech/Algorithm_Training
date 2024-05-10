@@ -1,0 +1,19 @@
+from collections import defaultdict
+
+N, K = map(int, input().split())
+arr = [input().split() for _ in range(N)]
+res = defaultdict(int)
+res["empty"] = 0
+direct = [(-1, 0), (0, 1), (1, 0), (0, -1), (0,0)]
+for _ in range(K) : 
+	x,y = map(int, input().split())
+	x, y = x-1, y-1
+	pos = [(x+dx, y+dy) for dx, dy in direct if 0<= x+dx < N and 0<= y+dy < N]
+	for dx, dy in pos :
+		addr = f"{dx}-{dy}"
+		if arr[dx][dy] == "@" :
+			res[addr] += 2
+		elif arr[dx][dy] == "0" :
+			res[addr] += 1
+
+print(max(res.values()))
