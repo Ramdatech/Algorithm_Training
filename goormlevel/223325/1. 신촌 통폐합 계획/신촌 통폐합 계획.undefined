@@ -1,0 +1,22 @@
+import sys
+from collections import deque, defaultdict
+t = sys.stdin.readline
+N = int(t().strip())
+ls = [()] + [[t().strip(), None] for x in range(N)]
+dp = defaultdict(list)
+top = set()
+for _ in range(N-1) : 
+	a, b = map(int, t().strip().split())
+	top.add(b)
+	while 1 :
+		if ls[a][1] == None : 
+			ls[a][1] = b
+			break
+		a = ls[a][1]
+		
+top = N*(N+1)//2 - sum(top)
+while 1 : 
+	print(ls[top][0], end='')
+	top = ls[top][1]
+	if top == None : 
+		break
