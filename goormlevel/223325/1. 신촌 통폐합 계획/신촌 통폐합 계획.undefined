@@ -15,8 +15,10 @@ for _ in range(N-1) :
 		a = ls[a][1]
 		
 top = N*(N+1)//2 - sum(top)
+tmp = ''
 while 1 : 
-	print(ls[top][0], end='')
+	tmp += ls[top][0]
 	top = ls[top][1]
 	if top == None : 
 		break
+print(tmp)
