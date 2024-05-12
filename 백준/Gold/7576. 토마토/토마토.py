@@ -10,13 +10,10 @@ dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
 
 que = deque(pos)
-vst = set()
 res = -1
 while que :
     x, y, d = que.popleft()
     if res < d : res = d
-    if (x, y) in vst : continue
-    vst.add((x, y))
     zero.discard((x, y))
     for i in range(4) :
         nx, ny = x + dx[i], y + dy[i]
