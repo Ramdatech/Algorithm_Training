@@ -18,7 +18,8 @@ def bfs(stt):
         if vst[x] : continue
         vst[x] = True
         for nx in graph[x]:
-            que.append(nx)
+            if not vst[nx]:
+                que.append(nx)
 
 res = 0
 for i in range(1, n+1):
