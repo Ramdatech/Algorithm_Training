@@ -9,21 +9,20 @@ for _ in range(m):
     graph[a].append(b)
     graph[b].append(a)
 
-vst = set()
+vst = [False] * (n+1)
 
 def bfs(stt):
     que = deque([stt])
     while que :
         x = que.popleft()
-        if x in vst :
-            continue
-        vst.add(x)
+        if vst[x] : continue
+        vst[x] = True
         for nx in graph[x]:
             que.append(nx)
 
 res = 0
 for i in range(1, n+1):
-    if i not in vst :
+    if not vst[i]:
         bfs(i)
         res += 1
 
