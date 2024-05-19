@@ -7,7 +7,6 @@ graph = defaultdict(list)
 for _ in range(m) :
     a, b, c = map(int, t().strip().split())
     graph[a].append((b, c))
-    # graph[b].append((a, c))
 
 que = []
 heapq.heappush(que, (0, stt))
