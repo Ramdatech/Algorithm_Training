@@ -1,16 +1,15 @@
 import math
 n = int(input())
-n = n//3
-res = int(math.log2(n))
+res = int(math.log2(n//3))
 
-def recurse(n):
+def rec(n):
     if n == 0 :
         return [" "*2 + "*" + " "*2, " " + "*" + " " + "*" + " ", "*"*5]
 
-    a = recurse(n-1)
-
-    b = [" "*(3 * 2**(n-1)) + i + " "*(3 * 2**(n-1)) for i in a]
+    a = rec(n-1)
+    t = 3*2**(n-1)
+    b = [" "*t + i + " "*t for i in a]
     b += [i + " " + i for i in a]
     return b
 
-print("\n".join(recurse(res)))
+print("\n".join(rec(res)))
