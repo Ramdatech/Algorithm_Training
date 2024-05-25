@@ -11,16 +11,15 @@ for i in range(n):
     ls.append(tmp)
 res = 0
 que = deque([pnt])
-vst = set()
 while que :
     x, y = que.popleft()
-    if (x, y) in vst : continue
-    if ls[x][y] == "P" :
-        res += 1
-    vst.add((x, y))
     for dx, dy in dirs :
         nx, ny = x+dx, y+dy
         if 0 <= nx < n and 0 <= ny < m and ls[nx][ny] != "X" :
             que.append((nx, ny))
+            if ls[nx][ny] == "P" :
+                res += 1
+            ls[nx][ny] = "X"
+
 
 print(res if res != 0 else "TT")
