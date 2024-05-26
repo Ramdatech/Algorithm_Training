@@ -9,10 +9,10 @@ for idx, goal in enumerate(ls):
         a = goal - tmplist[j]
         b = tmplist[j]
         if a < b :
-            p1 = bisect.bisect_left(tmplist, a, 0, n - 1)
+            p1 = bisect.bisect_left(tmplist, a)
             p2 = j
         else :
-            p1 = bisect.bisect_right(tmplist, b, 0, n-1)-1
+            p1 = bisect.bisect_right(tmplist, a)-1
             p2 = j
         if p1 != p2 and tmplist[p1] + tmplist[p2] == goal :
             res += 1
