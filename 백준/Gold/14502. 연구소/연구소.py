@@ -14,26 +14,20 @@ for i in range(n) :
             fld.append((i, j))
     ls.append(tmp)
 
-def bfs(stt):
+def bfs(stt, ban):
     que = deque(stt)
     vst = set()
     tmp = 0
     while que:
         x, y = que.popleft()
-        if (x, y) in vst: continue
-        vst.add((x, y))
         for dx, dy in dirs:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < m and ls[nx][ny] == 0 :
+            if 0 <= nx < n and 0 <= ny < m and ls[nx][ny] == 0 and (nx, ny) not in vst and (nx, ny) not in ban:
                 que.append((nx, ny))
+                vst.add((nx, ny))
     return len(vst)
 
 res = 0
 for ban in combinations(fld, 3):
-    for x, y in ban:
-        ls[x][y] = 1
-    res = max(res, len(fld)-bfs(stt)+len(stt)-3)
-    
-    for x, y in ban:
-        ls[x][y] = 0
+    res = max(res, len(fld)-bfs(stt, ban)-3)
 print(res)
