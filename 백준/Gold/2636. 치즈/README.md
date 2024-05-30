@@ -30,7 +30,7 @@
 
 <p style="text-align: center;"><그림 2> 한 시간 후의 치즈 모양</p>
 
-<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/58fc0743-794b-4e27-84e8-fe491ec7bf3d/-/preview/" style="width: 234px; height: 232px;"></p>
+<p style="text-align: center;"><img alt="" src="" style="width: 234px; height: 232px;"></p>
 
 <p style="text-align: center;"><그림 3> 두 시간 후의 치즈 모양</p>
 
