@@ -10,13 +10,12 @@ for _ in range(n):
         stt, end, flag = que.popleft()
         if stt > end :
             res = min(res, flag)
-            continue
-        if flag == 2 : continue
+            break
 
         if s[stt] == s[end]:
             que.append((stt+1, end-1, flag))
-        if s[stt] != s[end] and s[stt+1] == s[end]:
+        if s[stt] != s[end] and s[stt+1] == s[end] and flag < 1 :
             que.append((stt+1, end, flag+1))
-        if s[stt] != s[end] and s[stt] == s[end-1]:
+        if s[stt] != s[end] and s[stt] == s[end-1] and flag < 1 :
             que.append((stt, end-1, flag+1))
     print(res)
