@@ -22,4 +22,5 @@ def dijk(stt) :
     return dist
 
 mid = dijk(x)
-print(*[-1] if mid.count(k) == 0 else [i for i in range(1, n + 1) if mid[i] == k])
+mid = [i for i in range(1, n + 1) if mid[i] == k]
+print(*mid if mid else [-1])
