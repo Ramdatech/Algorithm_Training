@@ -18,7 +18,7 @@ while que :
     for dx, dy in dirs :
         nx, ny = x+dx, y+dy
         if 0<=nx<n and 0<=ny<m :
-            if ls[x][y] == 0 and not msk[nx][ny][b] :
+            if ls[nx][ny] == 0 and not msk[nx][ny][b] :
                 msk[nx][ny][b] = True
                 que.append((nx, ny, b, dist+1))
             elif b == 0 and not msk[nx][ny][b] :
