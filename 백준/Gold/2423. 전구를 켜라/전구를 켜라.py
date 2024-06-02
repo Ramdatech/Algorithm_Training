@@ -9,11 +9,11 @@ for i in range(n-1):
         a, b, c, d = i*m+j, (i+1)*m+j+1, i*m+j+1, (i+1)*m+j
         addr = 0 if ls[i][j] == '\\' else 1
         if a < n*m and b < n*m:
-            msk[addr][a].append((b, 1))
-            msk[addr][b].append((a, 1))
+            msk[addr][a].append(b)
+            msk[addr][b].append(a)
         if c < n*m and d < n*m:
-            msk[addr^1][c].append((d, 1))
-            msk[addr^1][d].append((c, 1))
+            msk[addr^1][c].append(d)
+            msk[addr^1][d].append(c)
 
 que = []
 heapq.heappush(que, (0, 0))
@@ -26,7 +26,7 @@ while que :
         break
 
     for tmp in range(2) :
-        for nxt, ncost in msk[tmp][cur]:
+        for nxt in msk[tmp][cur]:
             if dist[nxt] > cnt + tmp:
                 dist[nxt] = cnt + tmp
                 heapq.heappush(que, (cnt+tmp, -nxt))
