@@ -1,47 +1,36 @@
 import sys, math
 t = sys.stdin.readline
-a, b, c = map(int, t().split())
-w = int(t())
-n = int(t())
+ls = map(int, t().split())
+c0 = int(t())
+n0 = int(t())
 
-
-def chk(a, b, c, w, n):
+def chk(lst, w, n):
     def g(x):
-        return (a - w) * x ** 2 + b * x + c
-
-    na, nb, nc = a - w, b, c
+        return (a - w) * x ** 2 + nb * x + nc
+    a, nb, nc = lst
+    na = a - w
 
     if na > 0 :
         return 0
 
-    elif na < 0:
+    if na < 0:
         nx = -nb/(2*na)
         ny = g(nx)
-
-        if ny <= 0:
+        if ny <= 0 or (g(n) <= 0 and nx <= n):
             return 1
-        if g(n) <= 0 and nx <= n :
+        return 0
+    
+    if nb == 0:
+        if nc <= 0:
             return 1
-        else:
-            return 0
-    else :
-        if nb == 0:
-            if nc <= 0:
-                return 1
-            else:
-                return 0
-        else:
-            root = -nc/nb
-            if nb > 0:
-                if root >= n:
-                    return 1
-                else:
-                    return 0
-            else:
-                if root < n:
-                    return 1
-                else:
-                    return 0
+        return 0
+    rt = -nc/nb
+    if nb > 0:
+        if rt >= n:
+            return 1
+        return 0
+    if rt < n:
+        return 1
+    return 0
 
-        
-print(chk(a, b, c, w, n))
+print(chk(ls, c0, n0))
