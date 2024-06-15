@@ -4,9 +4,9 @@ n = int(t())
 ls = [list(map(int, t().split())) for _ in range(n)]
 
 def f(x, y):
-    ans = float('inf')
+    ans = 1e12
 
-    for dx in range(500):
+    for dx in range(300):
         nx = x+dx
         mn, mx = 3*nx, 4*nx
 
