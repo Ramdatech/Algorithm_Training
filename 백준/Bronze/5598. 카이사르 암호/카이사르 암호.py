@@ -1,1 +1,1 @@
-print(*[chr((ord(t)-68)%26+65) for t in input()], sep="")
+print("".join(chr((ord(t)-68)%26+65) for t in input()))
