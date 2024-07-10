@@ -1,0 +1,1 @@
+print("".join([chr((ord(char) - 65 - 3) % 26 + 65) for char in input()]))
