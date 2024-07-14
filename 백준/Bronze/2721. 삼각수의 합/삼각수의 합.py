@@ -1,0 +1,1 @@
+for _ in range(int(input())): print(sum((k*(k+1)//2)*(k-1) for k in range(2, int(input())+2)))
