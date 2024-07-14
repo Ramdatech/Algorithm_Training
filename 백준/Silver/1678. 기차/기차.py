@@ -1,10 +1,10 @@
 import bisect
 T, M, N = map(int, input().split())
-tab = {}
+tab = []
 for _ in range(T):
     tn, *tms = input().split()
     tms = list(map(int, tms[:-1]))
     for t in tms :
-        tab[t] = tn
-idx = (bisect.bisect_left(sorted(list(tab.keys())), M) + N) % len(tab) - 1
-print(tab[sorted(list(tab.keys()))[idx]])
+        tab.append([t, tn])
+tab.sort()
+print(tab[(bisect.bisect_left(list(zip(*tab))[0],M)+N)%len(tab)-1][1])
