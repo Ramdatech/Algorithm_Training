@@ -5,10 +5,8 @@ M = [[], []]
 AS=BS=0
 for _ in range(n) :
     a, b = map(int, t().split())
-    if a == 1 and m > b :
-        m += b
-    else :
-        M[a-1]+=[b]
+    if a-1 or m <= b : M[a-1]+=[b]
+    else : m += b
 (A, AL), (B, BL) = [[sorted(x), len(x)] for x in M]
 while 1 :
     while AS < AL and m > A[AS]:
