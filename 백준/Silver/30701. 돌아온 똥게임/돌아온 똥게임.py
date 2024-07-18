@@ -1,6 +1,5 @@
 import sys
 t = sys.stdin.readline
-n, m = map(int, t().split())
 def f(n,m) :
     M = [[], []]
     AS=BS=0
@@ -20,4 +19,4 @@ def f(n,m) :
         if AS == AL or A[AS] >= m :
             break
     print(n-AL+AS)
-f(n,m)
+f(*map(int, t().split()))
