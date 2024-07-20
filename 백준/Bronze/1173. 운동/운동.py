@@ -1,14 +1,16 @@
-N, m, M, T, R = map(int, input().split())
-lim = m
-if M-m < T :
-    print(-1)
-else :
-    cnt=res=0
-    while cnt < N :
-        if m + T <= M :
-            cnt += 1
-            m += T
-        else :
-            m = max(m-R, lim)
-        res += 1
-    print(res)
+def f(N, m, M, T, R) :
+    lim = m
+    if M-m < T :
+        return -1
+    else :
+        e=r=0
+        while e < N :
+            if m + T <= M :
+                tmp = min((M-m)//T, N-e)
+                e += tmp
+                m += T*tmp
+            else :
+                m = max(m-R, lim)
+                r += 1
+        return e+r
+print(f(*map(int, input().split())))
