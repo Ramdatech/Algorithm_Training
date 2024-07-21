@@ -1,2 +1,6 @@
-tab = {'ck': 0, 'wn': 1, 'ed': 2, 'ge': 3, 'ow': 4, 'en': 5, 'ue': 6, 'et': 7, 'ey': 8, 'te': 9}
-print(sum(tab[input()[-2:]]*10**(1-i) for i in range(2)) * int(10**tab[input()[-2:]]))
+import sys
+tab = {'black': 0, 'brown': 1, 'red': 2, 'orange': 3, 'yellow': 4, 'green': 5, 'blue': 6, 'violet': 7, 'grey': 8, 'white': 9}
+t = sys.stdin.readline
+def f(a,b,c):
+    return (a*10+b)*10**c
+print(f(*[tab[t().strip()] for _ in range(3)]))
