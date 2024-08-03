@@ -1,5 +1,2 @@
-n, d = int(input()), int(input())
-for i in range(100):
-    if (n//100*100 + i)%d == 0 :
-        print(str(i).zfill(2))
-        break
+n, d = int(input())//100*100, int(input())
+print("00" if n%d == 0 else str(d-n%d).zfill(2))
