@@ -1,9 +1,2 @@
-t = input()
-if t == "SONGDO":
-    print("HIGHSCHOOL")
-elif t == "CODE":
-    print("MASTER")
-elif t == "2023":
-    print("0611")
-elif t == "ALGORITHM":
-    print("CONTEST")
+s = {"S": "HIGHSCHOOL", "C": "MASTER", "2": "0611", "A": "CONTEST"}
+print(s[input()[0]])
