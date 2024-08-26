@@ -1,2 +1,1 @@
-s = {"S": "HIGHSCHOOL", "C": "MASTER", "2": "0611", "A": "CONTEST"}
-print(s[input()[0]])
+print({"S":"HIGHSCHOOL","C":"MASTER","2":"0611","A":"CONTEST"}[input()[0]])
