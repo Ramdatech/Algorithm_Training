@@ -1,11 +1,10 @@
 n = int(input())
 scr = sorted(list(map(int, input().split())), reverse=True)
-msk = [4, 11, 23, 40, 60, 77, 89, 96, 100]
+msk = [int(x*n/100) for x in [4, 11, 23, 40, 60, 77, 89, 96, 100]]
 cnt, cur = [0] * 9, 0
-for i, chk in enumerate(msk):
+for i, mx in enumerate(msk):
     if cur >= n:
         break
-    mx = int(chk*n/100)
     while cur < n and cur < mx:
         cnt[i] += 1
         cur += 1
