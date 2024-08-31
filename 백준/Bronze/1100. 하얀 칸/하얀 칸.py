@@ -1,0 +1,1 @@
+print(sum(sum(1 for x, t in enumerate(input()) if x%2==i%2 and t=='F') for i in range(8)))
