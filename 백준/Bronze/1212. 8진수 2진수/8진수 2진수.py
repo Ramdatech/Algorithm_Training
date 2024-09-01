@@ -1,5 +1,1 @@
-t = input()
-if t == '0':
-    print(0)
-else:
-    print(bin(int(t, 8))[2:])
+print(bin(int(input(), 8))[2:])
