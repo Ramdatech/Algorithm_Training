@@ -18,7 +18,7 @@ for i, lst in enumerate(arr):
     q = f"Case {i+1}:"
     if chk(lst):
         if chk(list(zip(*lst))):
-            if chk([sum([lst[i+m][j:j+3] for m in range(3)], []) for i in range(0, 9, 3) for j in range(0, 9, 3)]):
+            if chk([sum([lst[i+m][j:j+3] for m in range(3)], []) for i in [0, 3, 6] for j in [0, 3, 6]]):
                 print(q, "CORRECT")
                 continue
     print(q, "INCORRECT")
